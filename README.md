@@ -1,5 +1,5 @@
 # Marian Antiphons
-This repository contains settings of the marian antiphons, both individually 
+This repository contains settings of Marian antiphons, both individually 
 and as a booklet for use in singing them throughout the liturgical year.
 
 I am indebted to the [Gregorio](http://gregorio-project.github.io/index.html)
