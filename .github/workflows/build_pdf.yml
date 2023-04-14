@@ -1,0 +1,33 @@
+name: Build PDF
+
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+  workflow_dispatch:
+
+jobs:
+  build-pdf:
+    runs-on: "ubuntu-latest"
+
+    steps:
+    - uses: actions/checkout@v3
+    
+    - name: Install build dependencies
+      run: sudo apt install texlive-latex-extra texlive-extra-utils latexmk fonts-linuxlibertine texlive-music
+
+    - name: Build marian antiphons
+      run: |
+        cd marian_antiphons
+        latexmk
+
+    - name: Build misc
+      run: |
+        cd misc
+        latexmk
+
+    - uses: actions/upload-artifact@v3
+      with:
+        path: ./**/*.pdf
+  
