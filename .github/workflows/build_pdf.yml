@@ -12,7 +12,7 @@ jobs:
     runs-on: "ubuntu-latest"
 
     steps:
-    - uses: actions/checkout@v3
+    - uses: actions/checkout@v4
     
     - name: Install build dependencies
       run: sudo apt install texlive-latex-extra texlive-extra-utils latexmk fonts-linuxlibertine texlive-music
@@ -27,7 +27,8 @@ jobs:
         cd misc
         latexmk
 
-    - uses: actions/upload-artifact@v3
+    - uses: actions/upload-artifact@v4
       with:
+        name: scores
         path: ./**/*.pdf
   
